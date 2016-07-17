@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="namespace_module" translate="label" sortOrder="50">
+            <label>Namespace Module</label>
+        </tab>
+        <section id="settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Hello World</label>
+            <tab>namespace_module</tab>
+            <resource>Hello_World::config</resource>
+            <group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <comment>Gloabal Comment.</comment>
+                <field id="footer_top_heading" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer - Top</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="footer_newsletter_title" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Field</label>
+                </field>
+                <field id="footer_newsletter_text" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Textarea</label>
+                </field>
+                <field id="disable" translate="label comment" type="select" sortOrder="30" showInDefault="30" showInWebsite="1" showInStore="1">
+                    <label>Disable (Selection)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cctypes" translate="label" type="multiselect" sortOrder="150" showInDefault="40" showInWebsite="1" showInStore="0">
+                    <label>Credit Card Types(MultiSelect)</label>
+                    <source_model>Magento\Authorizenet\Model\Source\Cctype</source_model>
+                </field>
+                <field id="logo_src" translate="label" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Logo Image</label>
+                    <comment>Allowed file types:PNG, GIF, JPG, JPEG, SVG.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image\Logo</backend_model>
+                    <base_url type="media" scope_info="1">logo</base_url>
+                </field>
+
+                <field id="depend_box" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color Box</label>
+                    <backend_model>Hello\World\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Hello\World\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+
+
+                <field id="depend_text" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Depend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="depend_1" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Depend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="depend_text">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

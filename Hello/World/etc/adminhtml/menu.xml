@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Hello_World::first" title="Hello World" module="Hello_World" sortOrder="10" dependsOnModule="Hello_World" resource="Hello_World::first"/>
+        <add id="Hello_World::second" title="Hello World Top" module="Hello_World" sortOrder="10" parent="Hello_World::first" resource="Hello_World::second" />
+        <add id="Hello_World::third" title="Hello World menu" module="Hello_World" sortOrder="10" parent="Hello_World::first" action="controller/index/index" resource="Hello_World::third"/>
+    </menu>
+</config>
